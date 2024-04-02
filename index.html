@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>mister-canvas</title>
+  </head>
+  <body onload="init()">
+    <div class="main-container">
+      <div class="header">
+        <input value="#2474f5" id="color-select" type="color" />
+        <select name="shape-select" id="shape-select" onchange="setShape()">
+          <option disabled selected value="">shape</option>
+          <option value="line">line</option>
+          <option value="square">square</option>
+          <option value="circle">circle</option>
+        </select>
+        <input type="file"  href="#" onchange="uploadImage(event)"></input>
+      </div>
+      <!-- <div class="canvas-container"> -->
+      <canvas
+        class="canvas"
+        height="550"
+        width="1200"
+        ontouchstart="startDraw(event)"
+        onmousedown="startDraw(event)"
+        ontouchend="endDraw(event)"
+        onmouseup="endDraw(event)"
+        onmouseleave="endDraw(event)"
+        ontouchmove="draw(event)"
+        onmousemove="draw(event)"
+      ></canvas>
+      <div class="btns">
+        <div class="share-container">?</div>
+        <a href="#"  class ="share"onclick="shareCanvas()">upload</a>
+        <a href="#" onclick="downloadCanvas(this)" download="my-canvas.jpeg"
+          >save</a
+        >
+        <a href="#" onclick="clearCanvas()">clear</a>
+
+      </div>
+      <!-- </div> -->
+      <!-- <div class="btns">
+        <button class="btn">line</button>
+        <button class="btn">square</button>
+        <button class="btn">circle</button>
+        <button class="btn">x</button>
+      </div> -->
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
